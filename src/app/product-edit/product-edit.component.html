@@ -1,0 +1,16 @@
+<form class="container-xl m-2" *ngIf="product">
+      <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Tên SP</label>
+            <input type="text" class="form-control" [(ngModel)]="product.title" name="title" />
+      </div>
+      <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Giá SP</label>
+            <input type="number" class="form-control"  [(ngModel)]="product.price" name="price" />
+      </div>
+      <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mô tả</label>
+            <input type="text" class="form-control" [(ngModel)]="product.description" name="description" />
+      </div>
+      
+      <button type="submit" class="btn btn-primary" (click)="onEditProduct()">Sửa sản phẩm</button>
+</form>

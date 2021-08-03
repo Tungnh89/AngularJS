@@ -1,0 +1,42 @@
+<table class="table table-bordered m-1 container-xl">
+      <thead>
+            <tr>
+                  <th>STT</th>
+                  <th>Tên</th>
+                  <th>Ảnh</th>
+                  <th>Giá</th>
+                  <th>Trạng thái</th>
+                  <th>Hành động</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let prod of products index as i">
+                  <td>{{i + 1}}</td>
+                  <td>{{prod.title}}</td>
+                  <td><img src="{{prod.image}}" width="50"></td>
+                  <td>{{prod.price}}</td>
+                  <td>{{prod.status ? 'Còn hàng' : 'Hết hàng'}}</td>
+                  <td>
+                        <button class="btn btn-success" (click)="onHandleDetail(prod)">Chi tiết</button>
+                        <button class="btn btn-danger ms-3" (click)="onHandleRemove(prod.id)">Xóa</button>
+                        <button class="btn btn-warning ms-3" routerLink="/editProduct/{{prod.id}}" >Sửa</button>
+                        <button class="btn btn-info ms-3" routerLink="/addProduct">Thêm</button>
+                  </td>
+            </tr>
+      </tbody>
+</table>
+
+<div class="m-4" *ngIf="selected">
+      <h2 class="text-center text-info">Chi tiết sản phẩm</h2>
+      <!-- <p>{{selected.name}}</p> -->
+      <!-- <app-product-detail [data]="selected"></app-product-detail> -->
+      <!--Ở đoạn này data được coi là 1 Props chuyền dữ liệu sang productDetail-->
+</div>
+
+
+<!--
+      Lưu ý : ERROR TypeError: Cannot read property 'name' of undefined
+
+      - Cách sửa (keyWord : Directive) thêm *ngIf={{giá trị muốn truyền vào}}
+-->
+
